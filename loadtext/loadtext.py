@@ -13,13 +13,13 @@ import charset_normalizer
 from loguru import logger
 
 
-def loadtext(filename: Union[str, Path], splitlines: bool = False) -> Union[str, List[str]]:
+def loadtext(filename: Union[str, Path], splitlines: bool = True) -> Union[str, List[str]]:
     """Load text for given filepath.
 
     Args
     ----
     filename (str|Path): filename
-    splitlines (bool): output list of pars if True, defaul False
+    splitlines (bool): output list of pars if True, defaul True
 
     Returns
     ---
@@ -27,7 +27,10 @@ def loadtext(filename: Union[str, Path], splitlines: bool = False) -> Union[str,
     """
     if not Path(filename).is_file():
         _ = Path(filename).resolve().as_posix()
-        raise SystemExit(f"{_} does not exist or is not a file")
+
+        # raise SystemExit(f"{_} does not exist or is not a file")
+        # better to raise an Exception
+        raise Exception(f"{_} does not exist or is not a file")
     try:
         _ = charset_normalizer.detect(Path(filename).read_bytes())
     except Exception as exc:  # pylint: disable=broad-except

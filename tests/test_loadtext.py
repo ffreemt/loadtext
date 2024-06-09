@@ -3,7 +3,8 @@ from loadtext import loadtext
 
 def test_default():
     """Test default."""
-    assert len(loadtext("loadtext/__init__.py")) > 100
+    # default splitlines True
+    assert len(loadtext("loadtext/__init__.py", splitlines=False)) > 100
 
 def test_splitlines():
     """Test splitliens=True."""

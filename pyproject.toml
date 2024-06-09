@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "loadtext"
 dynamic = ["version"]
-description = 'Load a text file to string or list of paragraphs (when splitlines set to True) with blank lines removed'
+description = 'Load a text file as a string or a list of paragraphs (when splitlines is set to True) with blank lines removed'
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
